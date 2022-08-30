@@ -30,7 +30,7 @@ public:
 	virtual void sort() {};
 
 	
-private:
+protected:
 	//指向与之对应的SortingArray内data储存的地址，SortingMethod类可以通过num指针修改SortingArray.data的值
 	T* num;
 	int length;
