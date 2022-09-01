@@ -1,44 +1,40 @@
 //Caesar cipher
 #include<iostream>
-#include<vector>
 using namespace std;
 
 int main()
 {
-	int len;
-	cout << "输入密文长度:";
-	cin>>len;
+	string cipher;//密文
 	int n;
 	cout << "输入n:";
 	cin >> n;
-
-	vector<char> cipher(len);//密文
+	n %= 26;
 	cout << "输入密文:";
-	for (int i = 0; i < len; ++i)
-	{
-		cin >> cipher[i];
-	}
+	cin >> cipher;
+	int len = cipher.length();
 
-	vector<char> plaintext(len);//明文
+	string plaintext;//明文
+	plaintext.resize(len);
+
 	for (int j = 0; j < len; ++j)
 	{
-		if (cipher[j] < 97 || cipher[j] > 122)
+		if (cipher[j] < 'a' || cipher[j] > 'z')
 		{
 			cout << "请输入小写字母" << endl;
 		}
 		else
 		{
-			plaintext[j] = cipher[j] + n;
-			if (plaintext[j] > 122)
+			if (cipher[j] + n >= 'a' && cipher[j] + n <= 'z')
 			{
-				plaintext[j] -= 26;
+				plaintext[j] = cipher[j] + n;
+			}
+			else
+			{
+				plaintext[j] = 96 + (n - ('z' - cipher[j]));
 			}
 		}
 	}
 
-	cout << "解码后的明文为:";
-	for (int k = 0; k < len; ++k)
-	{
-		cout << plaintext[k];
-	}
+	cout << "解码后的明文为:" << plaintext;
+	return 0;
 }
