@@ -7,7 +7,12 @@ void letters(int n)
 {
 	for (int i = 0; i <strlen(str); i++)
 	{
+		
 		int m=(int)str[i]+n%26;
+		if (m > 122)
+		{
+			m = 96 + m - 122;
+		}
 		cout << (char)m;
 	}
 	
