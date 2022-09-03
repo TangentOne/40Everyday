@@ -30,6 +30,7 @@ public:
 
 int main()
 {
+    
     Solution tool;
     string s1 = "It's first day to code 40 lines";
     s1 = tool.replaceSpace(s1);
