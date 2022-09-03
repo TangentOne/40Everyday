@@ -29,6 +29,7 @@ public:
 
 int main()
 {
+    
     Solution tool;
     string s1 = "code 40 linesSecond day to ";
     cout << tool.reverseLeftWords(s1, 13);
