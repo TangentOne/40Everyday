@@ -5,59 +5,51 @@ class Solution {
 public:
     int search(vector<int>& nums, int target)
     {
-        int n = nums.size();
-        if (n < 1)
-            return 0;
-        int m = n / 2;
+        int top = 0;
+        int end = nums.size()-1;
         int count = 0;
-        if (nums[m] > target)
+        if (end < 0)
+            return 0;
+        if (nums[top] > target || nums[end] < target)
+            return 0;
+        int mid = (top+end) / 2;
+        while (nums[mid]<target)
         {
-            for (int i = 0; i < m; i++)
+            if (top != end)
             {
-                if (nums[i] == target)
-                {
-                    count++;
-                }
+                top = mid+1;
             }
-            return count;
+            mid = (top + end) / 2;
+            if (top == end && top == mid)
+                break;
+            
         }
-
-        if (nums[m] < target)
+        while (nums[mid]>target)
         {
-            for (int i = m+1; i < n; i++)
+            if (top != end)
             {
-                if (nums[i] == target)
-                {
-                    count++;
-                }
+                end = mid-1;
             }
-            return count;
+            mid=(top + end) / 2;
+            if (top == end && top == mid)
+                break;
+            
         }
-
-        if (nums[m] == target)
-        {
-            int m1 = m;
-            int m2 = m;
-            while (m1 >= 0 && nums[m1] == target)
-            {             
-                    m1--;
-                    count++;              
-               
-            }
-            while ( m2 < n && nums[m2] == target)
-            {
-                m2++;
-                count++;
-            }
-            return count - 1;
-        }
-        return 0;
+      
+    for (int i = top; i <= end; i++)
+    {
+        if (nums[i] == target)
+            count++;
+    }
+    return count;
+     
+        
     }
 };
 int main()
 {
     Solution tool;
-    vector<int>num = { 5,7,7,8,8,10};
+    vector<int>num = {0,1,2,3,4,4,4};
 
-    cout << tool.search(num,8);
+    cout << tool.search(num,2);
 }
