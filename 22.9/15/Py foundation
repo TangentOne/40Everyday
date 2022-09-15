@@ -1,0 +1,42 @@
+str='qwertyuiop'
+ 
+print(str)
+print(str[0:-1])           # 输出第一个到倒数第二个
+print(str[0])              # 输出第一个
+print(str[2:5])            # 第三个到第五个
+print(str[2:])             # 从第三个开始后的所有
+print(str[1:5:2])          # 从第二个到第五个,步长为2
+print(str * 2)             # 输出字符串两次
+print(str + '123')
+print('123\n456')
+print(r'123\n456')         #加r在''前则\不转义
+
+import sys
+sys.stdout.write(" hi \n") 
+
+a, b, c, d = 1, 2.2, True, 4+3j
+print(type(a), type(b), type(c), type(d))
+
+print(isinstance(a, int))
+
+class A:
+    pass
+class B(A):  #B是A的子类
+    pass
+
+print(type(B()) == A)
+print(isinstance(B(), A))  #isinstance认为子类是父类的一种类型，而type不认为
+
+print(2 ** 5) #乘方
+print(7%5)    #取余（取模）
+print(7//5)   #除法取整
+
+D=(1,2,3,3)
+print(D)   #输出元组，元组元素不可改
+
+C={"q","w","e","w"}
+print(C)   #输出集合会去掉重复元素
+
+dict={}   #不加用不了字典
+dict['yeah'] = "oh yeah"
+print (dict['yeah']) 
