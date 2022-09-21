@@ -1,0 +1,25 @@
+package decimaltobinary;
+
+import java.util.Scanner;
+
+public class dectobinary {
+	public static void main(String[] args)
+	{
+		try (Scanner scanner = new Scanner(System.in)) {
+			System.out.println("input a number:");
+			int value=scanner.nextInt();
+			System.out.println("its binary version:");
+			decimalToBinary(value);
+		}
+	}
+	public static void decimalToBinary(int value)
+	{
+
+		String binary="";
+		while(value!=0) {
+			binary=value%2+binary;
+			value/=2;
+		}
+		System.out.println(binary);
+	}
+}
