@@ -8,11 +8,35 @@
 
 提供一个代码共享的平台，上传的代码人人可见，查错优化，取长补短。
 
-#### 储存位置：
+
+
+
+
+### 目录：
+
+1. [储存说明](#Title1) 
+2. [上传提示](#Title2) 
+3. [注意事项](#Title3)
+4. [推荐题库](#Title4)
+5. [特殊说明](#Title4.5)
+6. [版权声明](#Title5)
+
+
+
+
+
+
+
+
+
+####  储存说明：
+<span id="Title1"> </span>
 
 主文件夹中储存每月的文件夹，命名为**YY.MM**或**YY.M**。月度文件夹下储存日文件夹，命名为**DD**或**D**。例如，**2022年9月1日**的文件应当储存在**40Everyday/22.9/1**文件夹中。每日第一个上传文件的同学负责创建当日文件夹。
 
 #### 上传提示：
+<span id="Title2"> </span>
+
 
 1. 进入当天对应的文件夹
 
@@ -29,11 +53,10 @@
 
    <img src="README.assets/image-20220831193525225.png" alt="image-20220831193525225" style="zoom:50%;" />
 
-#### 
-
 
 
 #### 注意事项：
+<span id="Title3"> </span>
 
 1. 任何语言均可，但请**仅上传源代码部分**
 2. 每日提交的代码请上传到**对应日期**的文件夹中
@@ -42,6 +65,9 @@
 
 
 #### 推荐题库：
+<span id="Title4"> </span>
+
+
 
 不知道刷什么题可以参考下面的网站(欢迎安利)：
 
@@ -53,13 +79,35 @@
 
 
 
-**[luogu.org](https://www.luogu.com.cn)**:
+##### [luogu.org](https://www.luogu.com.cn):
 
 [官方题单](https://www.luogu.com.cn/training/list)、官方题单够做一会了......
 
 
 
+#### 特殊说明：
+<span id="Title4.5"></span>
+
+由于我国的特殊国情，可能Github有时会出现连接超时、访问不上等情况，可以使用特殊的 代理工具 或者以下的软件进行加速：
+
+Watt Toolkit
+
+![image-20220921201525295](README.assets/image-20220921201525295.png)
+
+官网：https://steampp.net/
+
+Windows应用商店：https://apps.microsoft.com/store/detail/watt-toolkit/9MTCFHS560NG?hl=en-us&gl=us
+
+
+
+
+
+
+
+
+
 #### 版权声明：
+<span id="Title5"> </span>
 
 1.每一个引用/修改/衍生本项目中代码的文件**必须**在该文件中**注明代码出处**，精确到具体文件及文件作者（例：引自/修改/衍生自 40Everyday/22.8.31/BubbleSort.h  *TangentOne*）
 
