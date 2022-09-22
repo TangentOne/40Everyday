@@ -1,0 +1,60 @@
+/*
+    链表数据结构在java中的实现
+ */
+package Link;
+
+public class List <T>{
+    private int number;
+    private class Node{
+        private T t;
+        private Node next;
+
+        public T getT() {
+            return t;
+        }
+
+        public Node(T t, Node next){
+            this.t=t;
+            this.next=next;
+        }
+        public Node(T t)
+        {
+            this(t,null);
+        }
+    }
+    private Node head;//头节点
+    private int List_size;
+
+    public int getList_size(){
+        return List_size;
+    }
+    public Node getHead(){
+        return head;
+    }
+    public void addNode(T t,int index){
+        if(index<0||index<List_size){
+            throw new IllegalArgumentException("index is error");
+        }
+        if(index==0){
+            Node node = new Node(t);
+            node.next=this.head;
+            this.head=node;
+            this.List_size++;
+        }
+        else{
+            Node preNode =  this.head;
+            for(int i = 0;i<index-1;i++){//preNode是第index的节点前面一个指向它的节点
+                preNode = preNode.next;
+            }
+            Node node = new Node(t);
+            node.next=preNode.next;
+            preNode.next=node;
+            this.List_size++;
+        }
+    }
+
+    public List(){
+        this.List_size=0;
+        this.head=null;
+    }
+}
