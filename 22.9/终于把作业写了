@@ -1,0 +1,79 @@
+package mathTutor;
+
+import java.util.Scanner;
+
+public class Mathtutor {
+	public static void main(String[]args)
+	{
+		try(Scanner sc=new Scanner(System.in)){
+		while(true)
+		{
+		System.out.println("Main Menu\n1:Additon\n2:Subtraction\n3:Multiplication\n4:Division\n5:Exit");
+		System.out.print("Enter a choice:");
+		int value=sc.nextInt();
+		int num1,num2;
+		num1=(int)(Math.random()*10);
+		num2=(int)(Math.random()*10);
+		if(value==1) {
+			System.out.print("What is"+num1+"+"+num2+"?");
+			int result=sc.nextInt();
+			int correct=num1+num2;
+			if(result==correct)
+				System.out.print("Correct\n");
+			else
+				System.out.print("Your answer is wrong.The correct answer is"+correct+"\n");
+			
+		}
+		else if(value==2)
+		{
+			System.out.print("What is"+num1+"-"+num2+"?");
+			int result=sc.nextInt();
+			int correct=num1-num2;
+			if(result==correct)
+				System.out.print("Correct\n");
+			else
+				System.out.print("Your answer is wrong.The correct answer is"+correct+"\n");
+				
+		}
+		else if(value==3)
+		{
+			if(num2==0)
+				num2=(int)Math.random()*10;
+			System.out.print("What is"+num1+"*"+num2+"?");
+			int result=sc.nextInt();
+			int correct=num1*num2;
+			if(result==correct)
+				System.out.print("Correct\n");
+			else
+				System.out.print("Your answer is wrong.The correct answer is"+correct+"\n");
+			
+		}
+		else if(value==4)
+		{
+			System.out.print("What is"+num1+"/"+num2+"?");
+			int result=sc.nextInt();
+			int correct=num1/num2;
+			if(result==correct)
+				System.out.print("Correct\n");
+			else
+				System.out.print("Your answer is wrong.The correct answer is"+correct+"\n");
+				
+		}
+		else if(value==5)
+			break;
+		}
+		}
+	}
+}
+
+package random;
+
+public class Ran {
+	public static void main(String[]args) {
+		double x,y;
+		x=Math.random()*5;
+		y=Math.random()*5;
+		double distance=Math.sqrt(Math.pow(x,2)+Math.pow(y, 2));
+		System.out.print("The point is("+x+","+y+")and its distance to the center is "+distance);
+	}
+}
