@@ -1,0 +1,56 @@
+#include<iostream>
+using namespace std;
+struct ListNode
+{
+	int data;//数据
+	ListNode* pre;//前指针
+	ListNode* next;//后指针
+};
+ListNode* InitList()//初始化
+{
+	ListNode* head = new ListNode;
+	head->next = NULL;
+	head->pre = NULL;
+	head->data = '\0';
+	return head;
+}
+void InsertList(ListNode* head,int add,int data)//打印
+{
+	ListNode* n = (ListNode*)malloc(sizeof(ListNode));
+	if (n == NULL)
+	{
+		cout << "Error!";
+	}
+	else {
+		n->data = data;
+		n->pre = NULL;
+		n->next = NULL;
+	}
+	if (add == 1)
+	{
+		n->next = head;
+		head->pre = n;
+		head = n;
+	}
+	else
+	{
+		ListNode* search = head;
+		for (int i = 1; i < add - 1; i++)
+		{
+			search = search->next;
+		}
+		if (search->next == NULL)
+		{
+			search->next = n;
+			n->pre = search;
+		}
+		else
+		{
+			search->next->pre = n;
+			n->next = search->next;
+			search->next = n;
+			n->pre = search;
+		}
+	}
+	cout<<head;
+}
