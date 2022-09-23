@@ -6,7 +6,7 @@ struct ListNode
 	ListNode* pre;//前指针
 	ListNode* next;//后指针
 };
-ListNode* InitList()//初始化
+ListNode* InitList()//
 {
 	ListNode* head = new ListNode;
 	head->next = NULL;
@@ -14,7 +14,7 @@ ListNode* InitList()//初始化
 	head->data = '\0';
 	return head;
 }
-void InsertList(ListNode* head,int add,int data)//打印
+void InsertList(ListNode* head,int add,int data)//插入
 {
 	ListNode* n = (ListNode*)malloc(sizeof(ListNode));
 	if (n == NULL)
