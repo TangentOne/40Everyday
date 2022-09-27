@@ -1,0 +1,92 @@
+#include<iostream>
+using namespace std;
+
+struct ListNode
+{
+	int data;
+	ListNode* next;
+};
+
+class Node
+{
+public:
+	void CreateList(ListNode* head)//创建
+	{
+		int amount;
+		
+		cout << "Enter the amount of the integer you want to insert:";
+		cin >> amount;
+		for (int i = 0; i < amount; i++)
+		{
+			int integer;
+			cout << "Enter the integer you want to insert:";
+			cin >> integer;
+			ListNode* node = new ListNode;
+			node->data = integer;
+			node->next = nullptr;
+			head->next = node;
+			head = node;
+		}
+		
+	}
+	void PrintList(ListNode* head)//打印
+	{
+		cout << "Head";
+		head = head->next;
+		while (head!=nullptr)
+		{
+			cout << "->" << head->data;
+			head = head->next;
+		}
+		cout << endl;
+	}
+	void DeleteList(ListNode* head)//删除
+	{
+		ListNode* search = new ListNode;//标记要删除对象前一个结点
+		ListNode* target = new ListNode;//要删除的结点
+		search = head;
+		int position;
+		cout << "Enter the number of digits you want to delete:";
+		cin >> position;
+		for (int i = 1; i < position; i++)
+		{
+			search = search->next;
+		}
+		target = search->next;
+		search->next = target->next;
+		delete target;
+	}
+	void InsertNode(ListNode* head)//插入
+	{
+		ListNode* insert = new ListNode;//要插入的结点
+		ListNode* pre = new ListNode;//标记前一个结点
+		pre = head;
+		int position;
+		cout << "Enter the number of digits you want to insert:";
+		cin >> position;
+		int integer;
+		cout << "Enter the integer you want to insert:";
+		cin >> integer;
+		insert->data = integer;
+		for (int i = 1; i < position; i++)
+		{
+			pre = pre->next;
+		}
+		insert->next = pre->next ;
+		pre->next = insert;
+	}
+};
+
+int main()
+{
+	ListNode* head = new ListNode;
+	Node n;
+	head->data = 0;
+	head->next = nullptr;
+	n.CreateList(head);
+	n.PrintList(head);
+	n.DeleteList(head);
+	n.PrintList(head);
+	n.InsertNode(head);
+	n.PrintList(head);
+}
