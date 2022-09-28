@@ -1,0 +1,163 @@
+#include<iostream>
+#include<stack>
+using namespace std;
+
+struct ListNode
+{
+	int data;
+	ListNode* next;
+};
+
+class Node
+{
+public:
+	void CreateList(ListNode* head)//创建
+	{
+		int amount;
+		
+		cout << "Enter the amount of the integer you want to insert:";
+		cin >> amount;
+		for (int i = 0; i < amount; i++)
+		{
+			int integer;
+			cout << "Enter the integer you want to insert:";
+			cin >> integer;
+			ListNode* node = new ListNode;
+			node->data = integer;
+			node->next = nullptr;
+			head->next = node;
+			head = node;
+		}
+		
+	}
+	void PrintList(ListNode* head)//打印
+	{
+		cout << "Head";
+		head = head->next;
+		while (head!=nullptr)
+		{
+			cout << "->" << head->data;
+			head = head->next;
+		}
+		cout << endl;
+	}
+	void DeleteList(ListNode* head)//删除
+	{
+		ListNode* search = new ListNode;//标记要删除对象前一个结点
+		ListNode* target = new ListNode;//要删除的结点
+		search = head;
+		int position;
+		cout << "Enter the number of digits you want to delete:";
+		cin >> position;
+		for (int i = 1; i < position; i++)
+		{
+			search = search->next;
+		}
+		target = search->next;
+		search->next = target->next;
+		delete target;
+	}
+	void InsertNode(ListNode* head)//插入
+	{
+		ListNode* insert = new ListNode;//要插入的结点
+		ListNode* pre = new ListNode;//标记前一个结点
+		pre = head;
+		int position;
+		cout << "Enter the number of digits you want to insert:";
+		cin >> position;
+		int integer;
+		cout << "Enter the integer you want to insert:";
+		cin >> integer;
+		insert->data = integer;
+		for (int i = 1; i < position; i++)
+		{
+			pre = pre->next;
+		}
+		insert->next = pre->next ;
+		pre->next = insert;
+	}
+	void AddList(ListNode* head1, ListNode* head2)
+	{
+		stack<int>h1;
+		stack<int>h2;
+		stack<int>result;
+		ListNode* count1 = new ListNode;
+		ListNode* count2 = new ListNode;
+
+		count1 = head1;
+		count2 = head2;
+		while (head1!=nullptr)//压栈，逆序转顺序，再进行加法
+		{
+			h1.push(count1->data);
+			count1 = count1->next;
+		}
+		while (head2!=nullptr)
+		{
+			h2.push(count2->data);
+			count2 = count2->next;
+		}
+		//出栈，进行加法，再入栈
+		int carry=0;
+		int sum = 0;
+		while (!h1.empty() || !h2.empty())
+		{
+			while (!h1.empty() && !h2.empty())
+			{
+				sum = h1.top() + h2.top();
+				if (sum >= 10)
+				{
+					sum = sum % 10;
+					result.push(sum + carry);
+					carry = 1;
+				}
+				else
+				{
+					result.push(sum + carry);
+				}
+				h1.pop();
+				h2.pop();
+				carry = 0;
+			}
+			while (!h1.empty() && h2.empty())
+			{
+				result.push(h1.top());
+				h1.pop();
+			}
+			while (h1.empty() && !h2.empty())
+			{
+				result.push(h2.top());
+				h2.pop();
+			}
+		}
+		
+		ListNode* finalresult = new ListNode;
+		ListNode* node = new ListNode;
+		finalresult->next=node;
+		while (!result.empty())
+		{
+			node->data = result.top();
+			node = node->next;
+			result.pop();
+		}
+		PrintList(finalresult);
+	}
+};
+
+int main()
+{
+	ListNode* head = new ListNode;
+	ListNode* head1 = new ListNode;
+	Node n;
+	head->data = 0;
+	head->next = nullptr;
+	head1->data = 0;
+	head1->next = nullptr;
+	n.CreateList(head);
+	n.PrintList(head);
+	n.CreateList(head1);
+	//n.DeleteList(head);
+	n.PrintList(head1);
+	//n.InsertNode(head);
+	//n.PrintList(head);
+	n.AddList(head, head1);
+}
